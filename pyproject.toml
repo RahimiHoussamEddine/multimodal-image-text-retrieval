@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multimodal-image-text-retrieval"
+version = "0.1.0"
+description = "A license-aware local image-text retrieval workbench"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+dependencies = [
+  "huggingface_hub>=0.30,<1",
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<4",
+  "Pillow>=10.4,<13",
+  "plotly>=5.24,<7",
+  "scikit-learn>=1.5,<2",
+  "safetensors>=0.4,<1",
+  "sentencepiece>=0.2,<1",
+  "streamlit>=1.58,<2",
+  "torch>=2.4,<3",
+  "transformers>=4.49,<5",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3,<9", "ruff>=0.11,<1"]
+
+[project.scripts]
+multimodal-fetch = "multimodal_retrieval.data:main"
+multimodal-encode = "multimodal_retrieval.embeddings:main"
+multimodal-evaluate = "multimodal_retrieval.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

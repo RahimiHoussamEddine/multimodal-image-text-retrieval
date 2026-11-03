@@ -1,0 +1,453 @@
+{
+  "dataset": {
+    "name": "Microsoft COCO 2017 Captions validation split",
+    "split": "val2017 deterministic license-filtered sample",
+    "images": 500,
+    "captions": 2500,
+    "captions_per_image": 5,
+    "eligible_images_before_sampling": 847,
+    "sample_seed": 2026,
+    "source_image_licenses": {
+      "Attribution License": 500
+    },
+    "unique_object_categories_in_sample": 79
+  },
+  "protocol": {
+    "model_is_frozen_pretrained": true,
+    "fine_tuning": false,
+    "model_selection_on_this_sample": false,
+    "model_pretraining_overlap_with_coco_possible": true,
+    "image_to_caption_positive_rule": "any of the five COCO captions for the image in top-k",
+    "caption_to_image_positive_rule": "paired image in top-k",
+    "caption_queries_bootstrapped_by_image_id": true,
+    "category_baseline_note": "TF-IDF fits on COCO instance-category tags and retrieves caption text; it uses ground-truth object metadata rather than raw pixels and is a privileged, interpretable reference."
+  },
+  "model": {
+    "model_id": "google/siglip-base-patch16-224",
+    "model_revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "weights_sha256": "2c63cb7d1f2e95ba501893cbb8faeb4ea9a3af295498d35097126228659c2af8",
+    "image_count": 500,
+    "caption_count": 2500,
+    "embedding_dimension": 768,
+    "image_batch_size": 12,
+    "text_batch_size": 32,
+    "max_text_length": 64,
+    "device": "cpu",
+    "seconds": 216.10706188500626,
+    "fine_tuned": false
+  },
+  "metrics": {
+    "siglip": {
+      "image_to_caption": {
+        "r@1": 0.854,
+        "r@5": 0.982,
+        "r@10": 0.99
+      },
+      "caption_to_image": {
+        "r@1": 0.7208,
+        "r@5": 0.932,
+        "r@10": 0.9808,
+        "median_rank": 1.0
+      }
+    },
+    "category_tag_tfidf": {
+      "image_to_caption": {
+        "r@1": 0.176,
+        "r@5": 0.348,
+        "r@10": 0.486
+      },
+      "caption_to_image": {
+        "r@1": 0.086,
+        "r@5": 0.32,
+        "r@10": 0.4776,
+        "median_rank": 11.0
+      }
+    },
+    "random_ranking_reference": {
+      "image_to_caption": {
+        "r@1": 0.0020000000000000018,
+        "r@5": 0.009968025625605281,
+        "r@10": 0.01985640308406733
+      },
+      "caption_to_image": {
+        "r@1": 0.0020000000000000018,
+        "r@5": 0.010000000000000009,
+        "r@10": 0.020000000000000018
+      }
+    }
+  },
+  "paired_siglip_minus_category_tfidf_recall_delta_cluster_bootstrap_95ci": {
+    "image_to_caption": {
+      "r@1": {
+        "delta": 0.678,
+        "ci_95_lower": 0.63,
+        "ci_95_upper": 0.72,
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "image ID cluster (five captions remain together)"
+      },
+      "r@5": {
+        "delta": 0.634,
+        "ci_95_lower": 0.59,
+        "ci_95_upper": 0.67605,
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "image ID cluster (five captions remain together)"
+      },
+      "r@10": {
+        "delta": 0.504,
+        "ci_95_lower": 0.462,
+        "ci_95_upper": 0.54805,
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "image ID cluster (five captions remain together)"
+      }
+    },
+    "caption_to_image": {
+      "r@1": {
+        "delta": 0.6347999999999999,
+        "ci_95_lower": 0.6024,
+        "ci_95_upper": 0.6688,
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "image ID cluster (five captions remain together)"
+      },
+      "r@5": {
+        "delta": 0.612,
+        "ci_95_lower": 0.57759,
+        "ci_95_upper": 0.64801,
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "image ID cluster (five captions remain together)"
+      },
+      "r@10": {
+        "delta": 0.5032000000000001,
+        "ci_95_lower": 0.46879,
+        "ci_95_upper": 0.54001,
+        "bootstrap_resamples": 1000,
+        "bootstrap_unit": "image ID cluster (five captions remain together)"
+      }
+    }
+  },
+  "category_recall_r_at_5_descriptive": [
+    {
+      "category": "person",
+      "images": 270,
+      "siglip_image_to_caption_r@5": 0.9740740740740741,
+      "siglip_text_to_image_r@5": 0.9162962962962963
+    },
+    {
+      "category": "chair",
+      "images": 77,
+      "siglip_image_to_caption_r@5": 0.987012987012987,
+      "siglip_text_to_image_r@5": 0.9272727272727272
+    },
+    {
+      "category": "dining table",
+      "images": 59,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9389830508474576
+    },
+    {
+      "category": "car",
+      "images": 55,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9381818181818182
+    },
+    {
+      "category": "bottle",
+      "images": 43,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9395348837209302
+    },
+    {
+      "category": "bowl",
+      "images": 38,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9210526315789473
+    },
+    {
+      "category": "cup",
+      "images": 38,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9526315789473684
+    },
+    {
+      "category": "handbag",
+      "images": 35,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9371428571428572
+    },
+    {
+      "category": "backpack",
+      "images": 34,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.8941176470588236
+    },
+    {
+      "category": "sink",
+      "images": 25,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.912
+    },
+    {
+      "category": "bench",
+      "images": 24,
+      "siglip_image_to_caption_r@5": 0.9583333333333334,
+      "siglip_text_to_image_r@5": 0.8833333333333333
+    },
+    {
+      "category": "knife",
+      "images": 23,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9391304347826087
+    },
+    {
+      "category": "book",
+      "images": 22,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9545454545454546
+    },
+    {
+      "category": "bed",
+      "images": 21,
+      "siglip_image_to_caption_r@5": 0.9523809523809523,
+      "siglip_text_to_image_r@5": 0.9428571428571428
+    },
+    {
+      "category": "traffic light",
+      "images": 21,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9809523809523809
+    },
+    {
+      "category": "truck",
+      "images": 21,
+      "siglip_image_to_caption_r@5": 0.9047619047619048,
+      "siglip_text_to_image_r@5": 0.9047619047619048
+    },
+    {
+      "category": "bus",
+      "images": 20,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.86
+    },
+    {
+      "category": "dog",
+      "images": 20,
+      "siglip_image_to_caption_r@5": 0.95,
+      "siglip_text_to_image_r@5": 0.96
+    },
+    {
+      "category": "bicycle",
+      "images": 19,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9157894736842105
+    },
+    {
+      "category": "clock",
+      "images": 19,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.8947368421052632
+    },
+    {
+      "category": "pizza",
+      "images": 19,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9473684210526315
+    },
+    {
+      "category": "umbrella",
+      "images": 19,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9789473684210527
+    },
+    {
+      "category": "cell phone",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9555555555555556
+    },
+    {
+      "category": "laptop",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9222222222222223
+    },
+    {
+      "category": "spoon",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9
+    },
+    {
+      "category": "sports ball",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 0.9444444444444444,
+      "siglip_text_to_image_r@5": 0.8333333333333334
+    },
+    {
+      "category": "tennis racket",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 0.9444444444444444,
+      "siglip_text_to_image_r@5": 0.8222222222222222
+    },
+    {
+      "category": "tie",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9555555555555556
+    },
+    {
+      "category": "tv",
+      "images": 18,
+      "siglip_image_to_caption_r@5": 0.9444444444444444,
+      "siglip_text_to_image_r@5": 0.9333333333333333
+    },
+    {
+      "category": "bird",
+      "images": 17,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9882352941176471
+    },
+    {
+      "category": "surfboard",
+      "images": 17,
+      "siglip_image_to_caption_r@5": 0.9411764705882353,
+      "siglip_text_to_image_r@5": 0.9411764705882353
+    },
+    {
+      "category": "fork",
+      "images": 16,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9125
+    },
+    {
+      "category": "sandwich",
+      "images": 16,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.975
+    },
+    {
+      "category": "skis",
+      "images": 16,
+      "siglip_image_to_caption_r@5": 0.8125,
+      "siglip_text_to_image_r@5": 0.8375
+    },
+    {
+      "category": "toilet",
+      "images": 16,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.95
+    },
+    {
+      "category": "train",
+      "images": 16,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.7625
+    },
+    {
+      "category": "broccoli",
+      "images": 15,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.8933333333333333
+    },
+    {
+      "category": "skateboard",
+      "images": 15,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.8533333333333334
+    },
+    {
+      "category": "cat",
+      "images": 14,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9857142857142858
+    },
+    {
+      "category": "horse",
+      "images": 13,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9538461538461539
+    },
+    {
+      "category": "motorcycle",
+      "images": 13,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9076923076923077
+    },
+    {
+      "category": "vase",
+      "images": 13,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9538461538461539
+    },
+    {
+      "category": "keyboard",
+      "images": 12,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.95
+    },
+    {
+      "category": "wine glass",
+      "images": 12,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9333333333333333
+    },
+    {
+      "category": "baseball glove",
+      "images": 11,
+      "siglip_image_to_caption_r@5": 0.9090909090909091,
+      "siglip_text_to_image_r@5": 0.8545454545454545
+    },
+    {
+      "category": "oven",
+      "images": 11,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9636363636363636
+    },
+    {
+      "category": "potted plant",
+      "images": 11,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 1.0
+    },
+    {
+      "category": "refrigerator",
+      "images": 11,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9454545454545454
+    },
+    {
+      "category": "suitcase",
+      "images": 11,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.9454545454545454
+    },
+    {
+      "category": "carrot",
+      "images": 10,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.96
+    },
+    {
+      "category": "couch",
+      "images": 10,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.94
+    },
+    {
+      "category": "fire hydrant",
+      "images": 10,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.98
+    },
+    {
+      "category": "remote",
+      "images": 10,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 0.92
+    },
+    {
+      "category": "teddy bear",
+      "images": 10,
+      "siglip_image_to_caption_r@5": 1.0,
+      "siglip_text_to_image_r@5": 1.0
+    }
+  ]
+}

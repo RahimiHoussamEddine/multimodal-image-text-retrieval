@@ -1,0 +1,33 @@
+{
+  "dataset": "Microsoft COCO 2017 captions and validation images",
+  "dataset_home": "https://cocodataset.org/",
+  "terms_url": "https://cocodataset.org/#termsofuse",
+  "annotations_license": "Creative Commons Attribution 4.0 International",
+  "annotations_license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_image_license_policy": [
+    "https://creativecommons.org/licenses/by/2.0",
+    "https://creativecommons.org/publicdomain/zero/1.0"
+  ],
+  "annotations_archive": {
+    "url": "http://images.cocodataset.org/annotations/annotations_trainval2017.zip",
+    "expected_bytes": 252907541,
+    "expected_etag": "f4bbac642086de4f52a3fdda2de5fa2c",
+    "expected_sha1_reference": "8551ee4bb5860311e79dace7e79cb91e432e78b3",
+    "sha256": "113a836d90195ee1f884e704da6304dfaaecff1f023f49b6ca93c4aaae470268",
+    "note": "Official archive endpoint only served HTTP during the verified run; validate byte count, ETag/MD5, published SHA-1, ZIP members, and a local SHA-256 before use."
+  },
+  "sample": {
+    "split": "val2017",
+    "image_count": 500,
+    "selection": "lowest SHA-256 ranks of image IDs among images with five captions and an allowed per-image source license",
+    "seed": 2026
+  },
+  "model": {
+    "id": "google/siglip-base-patch16-224",
+    "revision": "7fd15f0689c79d79e38b1c2e2e2370a7bf2761ed",
+    "license": "Apache-2.0",
+    "weights_file": "model.safetensors",
+    "expected_sha256": "2c63cb7d1f2e95ba501893cbb8faeb4ea9a3af295498d35097126228659c2af8",
+    "weights_sha256": "2c63cb7d1f2e95ba501893cbb8faeb4ea9a3af295498d35097126228659c2af8"
+  }
+}

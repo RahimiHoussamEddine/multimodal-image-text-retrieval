@@ -1,0 +1,17 @@
+.venv/
+.cache/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+data/raw/
+data/processed/
+models/
+reports/*_rows.csv
+reports/*_details.parquet
+.env
+.env.*
+!.env.example

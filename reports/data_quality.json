@@ -1,0 +1,12 @@
+{
+  "dataset": "Microsoft COCO 2017 Captions validation split",
+  "sample_images": 500,
+  "sample_captions": 2500,
+  "selected_licenses": {
+    "Attribution License": 500
+  },
+  "eligible_before_sample": 847,
+  "unique_categories": 79,
+  "raw_images_committed": false,
+  "caption_rows_committed": false
+}
